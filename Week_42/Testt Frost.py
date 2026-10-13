@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# Insert your personal Frost client ID here.
-client_id = 
+# Read your personal Frost client ID from client.txt.
+client_id = open("/Users/tommyskole/Documents/client.txt").read().strip()
 
 # Define the observations endpoint and request parameters.
 endpoint = "https://frost.met.no/observations/v0.jsonld"
