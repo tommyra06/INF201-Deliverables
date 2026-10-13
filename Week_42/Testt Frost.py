@@ -1,10 +1,14 @@
+import os
+
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Read your personal Frost client ID from client.txt.
-client_id = open("/Documents/client.txt").read().strip()
+client_id_path = os.path.expanduser("~/Documents/client.txt")
+with open(client_id_path, encoding="utf-8") as client_file:
+    client_id = client_file.read().strip()
 
 # Define the observations endpoint and request parameters.
 endpoint = "https://frost.met.no/observations/v0.jsonld"
