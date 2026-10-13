@@ -1,8 +1,9 @@
 import os
-import requests
-import pandas as pd
-import matplotlib.pyplot as plt
+
 import matplotlib.dates as mdates
+import matplotlib.pyplot as plt
+import pandas as pd
+import requests
 
 # Read your personal Frost client ID from client.txt.
 client_id_path = os.path.expanduser("~/Documents/client.txt")
