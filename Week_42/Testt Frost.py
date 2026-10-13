@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Insert your personal Frost client ID here.
-client_id = "70792fab-dbd6-41b3-bdb6-e9382644c11a"
+client_id = 
 
 # Define the observations endpoint and request parameters.
 endpoint = "https://frost.met.no/observations/v0.jsonld"
