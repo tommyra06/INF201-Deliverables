@@ -6,9 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
-# Custom
+# Finder
 .DS_Store
+
+# For week 42
 data.json
+heatwaves.yml
 
 # Distribution / packaging
 .Python
