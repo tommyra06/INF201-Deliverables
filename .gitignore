@@ -9,6 +9,10 @@ __pycache__/
 # Finder
 .DS_Store
 
+# For week 42
+data.json
+heatwaves.yml
+
 # Distribution / packaging
 .Python
 build/
