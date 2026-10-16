@@ -6,8 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
-# Finder
+# Custom
 .DS_Store
+data.json
 
 # Distribution / packaging
 .Python
