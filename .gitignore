@@ -13,6 +13,9 @@ __pycache__/
 data.json
 heatwaves.yml
 
+# For week 44
+d2_data
+
 # Distribution / packaging
 .Python
 build/

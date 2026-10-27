@@ -8,7 +8,7 @@ import random
 from datetime import datetime, timedelta
 from pathlib import Path
 
-BASE_DIR = Path("C:\\", "Users", "tutor5923", "Documents", "folder_for_saving", "d2_data")  # Path("data")
+BASE_DIR = Path("d2_data")  # Path("data")
 STORES = ["library_cafe", "science_building", "student_union"]
 REGISTERS = ["POS_01", "POS_02", "POS_03"]
 CURRENCIES = ["EUR", "NOK", "USD"]
