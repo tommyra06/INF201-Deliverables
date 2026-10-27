@@ -1,2 +1,4 @@
 pandas>=2.2
 matplotlib>=3.9
+requests>=2.32
+pyyaml>=6.0
