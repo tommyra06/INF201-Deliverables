@@ -2,7 +2,7 @@ import pathlib
 import re
 
 
-def data_reader() -> list:
+def data_reader() -> list[dict]:
     folder = pathlib.Path(r'd2_data\2026')
     info = []
     pattern = re.compile(
@@ -21,6 +21,7 @@ def data_reader() -> list:
                     match = pattern.match(line)
                     if match:
                         data = match.groupdict()
+                        data['price'] = float(data['price'])
                         info.append(data)
         except UnicodeError:
             with open(file, 'r', encoding='latin-1') as f:
@@ -28,5 +29,6 @@ def data_reader() -> list:
                     match = pattern.match(line)
                     if match:
                         data = match.groupdict()
+                        data['price'] = float(data['price'])
                         info.append(data)
     return(info)
