@@ -28,8 +28,7 @@ class Character:
         """Lowers hp based of damage taken"""
         self._hp -= dmg_taken
         self._hp = max(self._hp, 0)
-        self.alive_check()
-
+        
     def heal(self) -> None:
         """Increases hp"""
         self._hp += 10
@@ -90,7 +89,8 @@ class Mage(Character):
                 name (str): The name of the character.
                 hp_max (int): Max hit points (default = 100)
                 damage (int): Damage delt when character attacks (default = 10)
-                
+                mana (int): Amount of mana (default = 30)
+                mana_max (int): Max amount of mana (default = 30)        
         """
         self.mana = mana
         self.mana_max = mana_max
@@ -115,7 +115,3 @@ class Mage(Character):
 brad = Character('brad')
 pitt = Mage('pitt')
 
-pitt.attack(brad) 
-print(pitt.damage)   
-print(brad._hp)
-print(brad.is_alive())
