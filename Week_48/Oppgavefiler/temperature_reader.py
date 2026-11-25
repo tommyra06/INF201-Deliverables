@@ -1,6 +1,14 @@
 class Temperature:
+    """Class that represents temperature with unit"""
 
     def __init__(self, value: float, unit: str):
+        """
+                Initialise class
+        
+                Args:
+                    value (float): The temperature value
+                    unit (str): The temperature unit
+                """
         unit = unit.upper()
         self.absolue_zero = {
             'K': 0, 
@@ -10,11 +18,13 @@ class Temperature:
         
         if unit not in ('K', 'C', 'F') or value < self.absolue_zero[unit] - 1e-9:
             raise ValueError('Invalid unit')
+        #Checks if given unit is valid and if given value is above absolute zero
         
         self._value = value
         self._unit = unit
 
     def to_celsius(self) -> float:
+        """Converts temperature to celsius"""
         if self._unit == 'F':
             return((self._value - 32) * (5 / 9))
         elif self._unit == 'K':
@@ -23,6 +33,7 @@ class Temperature:
             return(self._value)
 
     def to_fahrenheit(self) -> float:
+        """Converts temperature to fahrenheit"""
         if self._unit == 'C':
             return((self._value * (9 / 5)) + 32)
         elif self._unit == 'K':
@@ -31,6 +42,7 @@ class Temperature:
             return(self._value)
 
     def to_kelvin(self) -> float:
+        """Converts temperature to kelvin"""
         if self._unit == 'C':
             return(self._value + 273.15)
         elif self._unit == 'F':
@@ -39,6 +51,7 @@ class Temperature:
             return(self._value)
 
     def convert_to(self, target_unit: str) -> object:
+        """Creates new object with converted temperature to given unit"""
         converters = {
             'K': self.to_kelvin, 
             'F': self.to_fahrenheit, 
