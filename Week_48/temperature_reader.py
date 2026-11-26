@@ -10,13 +10,13 @@ class Temperature:
                     unit (str): The temperature unit
                 """
         unit = unit.upper()
-        self.absolue_zero = {
+        absolue_zero = {
             'K': 0, 
             'C': -273.15, 
             'F': -459.67
             }
         
-        if unit not in ('K', 'C', 'F') or value < self.absolue_zero[unit] - 1e-9:
+        if unit not in absolue_zero or value < self.absolue_zero[unit] - 1e-9:
             raise ValueError('Invalid unit')
         #Checks if given unit is valid and if given value is above absolute zero
         
@@ -82,7 +82,7 @@ class Temperature:
     def __le__(self, other: object) -> bool:
         if not isinstance(other, Temperature):
             return NotImplemented
-        return self < other or self == other
+        return self <= other
 
     def __gt__(self, other: object) -> bool:
         if not isinstance(other, Temperature):
