@@ -2,7 +2,6 @@ import pytest
 
 from fraction import Fraction
 
-
 # ---------- 2.1: Initialiser ----------
 
 @pytest.mark.parametrize(
@@ -93,5 +92,54 @@ def test_compare_with_other_types() -> None:
         Fraction(1, 2) < 1
 
 
-# ---------- 2.2: Other special methods ----------
-# TODO (2.2): Tests for the arithmetic methods go here.
+# ---------- 2.2: Arithmetic methods ----------
+
+def test_add() -> None:
+    """Adding two fractions gives the correct result."""
+    assert Fraction(1, 2) + Fraction(1, 3) == Fraction(5, 6)
+
+
+def test_sub() -> None:
+    """Subtracting two fractions gives the correct result."""
+    assert Fraction(1, 2) - Fraction(1, 3) == Fraction(1, 6)
+
+
+def test_mul() -> None:
+    """Multiplying two fractions gives the correct result."""
+    assert Fraction(1, 2) * Fraction(1, 3) == Fraction(1, 6)
+
+
+def test_truediv() -> None:
+    """Dividing two fractions gives the correct result."""
+    assert Fraction(1, 2) / Fraction(1, 3) == Fraction(3, 2)
+
+
+def test_sum_is_zero() -> None:
+    """The sum of a fraction and its negative is zero."""
+    assert Fraction(1, 2) + Fraction(-1, 2) == Fraction(0, 1)
+
+
+def test_divide_by_zero_raises() -> None:
+    """Dividing by a fraction with a numerator of 0 raises ZeroDivisionError."""
+    with pytest.raises(ZeroDivisionError):
+        Fraction(1, 2) / Fraction(0, 1)
+
+
+def test_arithmetic_type_error() -> None:
+    """Arithmetic with something that is not a Fraction raises TypeError."""
+    with pytest.raises(TypeError):
+        Fraction(1, 2) + 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) - 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) * 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) / 1
+
+
+def test_negative_result() -> None:
+    """Arithmetic can give negative results."""
+    assert Fraction(1, 2) - Fraction(3, 4) == Fraction(-1, 4)
+    assert Fraction(-1, 2) + Fraction(1, 4) == Fraction(-1, 4)
+    assert Fraction(-1, 2) * Fraction(1, 4) == Fraction(-1, 8)
+    assert Fraction(-1, 2) / Fraction(1, 4) == Fraction(-2, 1)
