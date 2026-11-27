@@ -82,7 +82,7 @@ class Temperature:
     def __le__(self, other: object) -> bool:
         if not isinstance(other, Temperature):
             return NotImplemented
-        return self <= other
+        return self.to_kelvin() <= other.to_kelvin()
 
     def __gt__(self, other: object) -> bool:
         if not isinstance(other, Temperature):

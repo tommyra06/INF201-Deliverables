@@ -1,11 +1,20 @@
 import pytest
 from temperature_reader import Temperature
 
-space = '''
 
---------------------------
+def test_initialization():
+    temp = Temperature(25, 'C')
+    assert temp.value == 25
+    assert temp.unit == 'C'
 
-'''
+def test_read_only_properties():
+    temp = Temperature(25, 'C')
+
+    with pytest.raises(AttributeError):
+        temp.value = 30
+
+    with pytest.raises(AttributeError):
+        temp.unit = 'F'
 
 def test_validation():
     with pytest.raises(ValueError):
@@ -44,4 +53,18 @@ def test_roundtrip():
 
     assert converted == temp
 
+def test_comparisons():
+    assert Temperature(0, 'C') == Temperature(32, 'F')
+    assert Temperature(0, 'C') < Temperature(100, 'C')
+    assert Temperature(100, 'C') > Temperature(32, 'F')
+    assert Temperature(0, 'C') <= Temperature(32, 'F')
+    assert Temperature(100, 'C') >= Temperature(212, 'F')
+    assert Temperature(0, 'C') != Temperature(100, 'C')
 
+def test_str():
+    temp = Temperature(25, 'C')
+    assert str(temp) == '25.00 °C'
+
+def test_repr():
+    temp = Temperature(25, 'C')
+    assert repr(temp) == 'Temperature(25, C)'
