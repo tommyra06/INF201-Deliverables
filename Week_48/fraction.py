@@ -78,4 +78,30 @@ class Fraction:
             return NotImplemented
         return self.numerator * other.denominator >= other.numerator * self.denominator
 
-    # TODO (2.2): The other special methods go here.
+    def __add__(self, other: object) -> "Fraction":
+        """Return the sum of self and other."""
+        if not isinstance(other, Fraction):
+            return NotImplemented
+        return Fraction(self.numerator * other.denominator + other.numerator * self.denominator,
+                        self.denominator * other.denominator)
+
+    def __sub__(self, other: object) -> "Fraction":
+        """Return the difference of self and other."""
+        if not isinstance(other, Fraction):
+            return NotImplemented
+        return Fraction(self.numerator * other.denominator - other.numerator * self.denominator,
+                        self.denominator * other.denominator)
+
+    def __mul__(self, other: object) -> "Fraction":
+        """Return the product of self and other."""
+        if not isinstance(other, Fraction):
+            return NotImplemented
+        return Fraction(self.numerator * other.numerator,
+                        self.denominator * other.denominator)
+
+    def __truediv__(self, other: object) -> "Fraction":
+        """Return the quotient of self and other."""
+        if not isinstance(other, Fraction):
+            return NotImplemented
+        return Fraction(self.numerator * other.denominator,
+                        self.denominator * other.numerator)
