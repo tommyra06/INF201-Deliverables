@@ -2,7 +2,6 @@ import pytest
 
 from fraction import Fraction
 
-
 # ---------- 2.1: Initialiser ----------
 
 @pytest.mark.parametrize(
