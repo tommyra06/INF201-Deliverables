@@ -92,5 +92,20 @@ def test_compare_with_other_types() -> None:
         Fraction(1, 2) < 1
 
 
-# ---------- 2.2: Other special methods ----------
-# TODO (2.2): Tests for the arithmetic methods go here.
+# ---------- 2.2: Arithmetic methods ----------
+
+def test_add() -> None:
+    """Adding two fractions gives the correct result."""
+    assert Fraction(1, 2) + Fraction(1, 3) == Fraction(5, 6)
+
+def test_sub() -> None:
+    """Subtracting two fractions gives the correct result."""
+    assert Fraction(1, 2) - Fraction(1, 3) == Fraction(1, 6)
+
+def test_mul() -> None:
+    """Multiplying two fractions gives the correct result."""
+    assert Fraction(1, 2) * Fraction(1, 3) == Fraction(1, 6)
+
+def test_truediv() -> None:
+    """Dividing two fractions gives the correct result."""
+    assert Fraction(1, 2) / Fraction(1, 3) == Fraction(3, 2)
