@@ -98,14 +98,48 @@ def test_add() -> None:
     """Adding two fractions gives the correct result."""
     assert Fraction(1, 2) + Fraction(1, 3) == Fraction(5, 6)
 
+
 def test_sub() -> None:
     """Subtracting two fractions gives the correct result."""
     assert Fraction(1, 2) - Fraction(1, 3) == Fraction(1, 6)
+
 
 def test_mul() -> None:
     """Multiplying two fractions gives the correct result."""
     assert Fraction(1, 2) * Fraction(1, 3) == Fraction(1, 6)
 
+
 def test_truediv() -> None:
     """Dividing two fractions gives the correct result."""
     assert Fraction(1, 2) / Fraction(1, 3) == Fraction(3, 2)
+
+
+def test_sum_is_zero() -> None:
+    """The sum of a fraction and its negative is zero."""
+    assert Fraction(1, 2) + Fraction(-1, 2) == Fraction(0, 1)
+
+
+def divide_by_zero_raises() -> None:
+    """Dividing by a fraction with a numerator of 0 raises ZeroDivisionError."""
+    with pytest.raises(ZeroDivisionError):
+        Fraction(1, 2) / Fraction(0, 1)
+
+
+def arithmetic_type_error() -> None:
+    """Arithmetic with something that is not a Fraction raises TypeError."""
+    with pytest.raises(TypeError):
+        Fraction(1, 2) + 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) - 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) * 1
+    with pytest.raises(TypeError):
+        Fraction(1, 2) / 1
+
+
+def negative_result() -> None:
+    """Arithmetic can give negative results."""
+    assert Fraction(1, 2) - Fraction(3, 4) == Fraction(-1, 4)
+    assert Fraction(-1, 2) + Fraction(1, 4) == Fraction(-1, 4)
+    assert Fraction(-1, 2) * Fraction(1, 4) == Fraction(-1, 8)
+    assert Fraction(-1, 2) / Fraction(1, 4) == Fraction(-2, 1)
