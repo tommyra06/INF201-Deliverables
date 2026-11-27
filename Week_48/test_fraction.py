@@ -119,13 +119,13 @@ def test_sum_is_zero() -> None:
     assert Fraction(1, 2) + Fraction(-1, 2) == Fraction(0, 1)
 
 
-def divide_by_zero_raises() -> None:
+def test_divide_by_zero_raises() -> None:
     """Dividing by a fraction with a numerator of 0 raises ZeroDivisionError."""
     with pytest.raises(ZeroDivisionError):
         Fraction(1, 2) / Fraction(0, 1)
 
 
-def arithmetic_type_error() -> None:
+def test_arithmetic_type_error() -> None:
     """Arithmetic with something that is not a Fraction raises TypeError."""
     with pytest.raises(TypeError):
         Fraction(1, 2) + 1
@@ -137,7 +137,7 @@ def arithmetic_type_error() -> None:
         Fraction(1, 2) / 1
 
 
-def negative_result() -> None:
+def test_negative_result() -> None:
     """Arithmetic can give negative results."""
     assert Fraction(1, 2) - Fraction(3, 4) == Fraction(-1, 4)
     assert Fraction(-1, 2) + Fraction(1, 4) == Fraction(-1, 4)
