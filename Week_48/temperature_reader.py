@@ -16,7 +16,7 @@ class Temperature:
             'F': -459.67
             }
         
-        if unit not in absolue_zero or value < self.absolue_zero[unit] - 1e-9:
+        if unit not in absolue_zero or value < absolue_zero[unit] - 1e-9:
             raise ValueError('Invalid unit')
         #Checks if given unit is valid and if given value is above absolute zero
         
